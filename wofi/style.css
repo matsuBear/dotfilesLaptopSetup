@@ -8,9 +8,10 @@
 
 #window {
     font-size: 18px;
-    border: 0xp solid;
     background: linear-gradient(180deg, alpha(@low-tone, 0.7) 0%, alpha(@secd, 0.7) 50%, alpha(@low-tone, 0.7) 100%);
-    border: 0px solid transparent;
+    border-style: solid;
+    border-width: 0 0.2px 0 0 ;
+    border-image: linear-gradient(180deg, @acct 0%, @prim 10%, @high-tone 50%, @prim 90%, @acct 100%) 1;
 }
 
 #outer-box {
@@ -21,13 +22,14 @@
 #input {
     font-size: 120%;
     border: 0px solid;
-    padding: 16px;
+    padding: 12px;
     text-decoration-color: transparent;
     text-decoration: none;
     font-weight: bold;
     background: transparent;
     border: 0px solid transparent;
     color: @high-tone;
+    caret-color: @high-tone;
 }
 
 #inner-box {

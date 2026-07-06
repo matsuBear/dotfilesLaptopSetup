@@ -1,0 +1,170 @@
+{
+    "position": "right",
+    "width": 65,
+    "spacing": 4,
+    "modules-left": [
+        "clock",
+        "group/sys"
+    ],
+    "modules-center": [
+        "hyprland/workspaces",
+    ],
+    "modules-right": [
+        "group/audio",
+        "group/apps",
+        "network#icon",
+        "battery"
+    ],
+    "hyprland/workspaces":{
+        "format":"{id}",
+        "on-click":"activate",
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "interval": 60,
+        "format": "{0:%H}\n\u2009\n{0:%M}",
+        "justify": "center",
+        "align": "center",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+       "format-alt": "{0:%y}\n\u2009\n{0:%m}\n\u2009\n{0:%d}"
+    },
+    "cpu": {
+        "format": "{usage}% \u2009",
+        "tooltip": false,
+        "justify": "center"
+    },
+    "memory": {
+        "format": "{}% \u2009",
+        "justify": "center"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "justify": "center"
+    },
+    "battery": {
+        "max-length": 6,
+        "min-length": 6,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-full": "{icon}",
+        "format-charging": "{capacity}%",
+        "format-plugged": "{capacity}%",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁿",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "justify": "center"
+    },
+    "battery#bat2": {
+        "bat": "BAT2",
+        "justify": "center"
+    },
+    "network#icon": {
+        "format-wifi": "󰤨\u2009",
+        "format-ethernet": "󰈀\u2009",
+        "format-disconnected": "󰤭\u2009",
+        "tooltip-format":"{essid}",
+        "tooltip-format-ethernet":"{ifname}",
+        "tooltip-format-disconnected":"DCed",
+        "justify": "center",
+        "on-click": "kitty -e nmtui",
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-bluetooth": "{icon}\u200A",
+        "format-bluetooth-muted": "{icon}\u200A",
+        "format-icons": {
+            "headphone": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "justify": "center"
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "vertical",
+        "scroll-step": 1,
+        "justify": "center"
+    },
+    "group/audio": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "pulseaudio",
+            "pulseaudio/slider"
+        ]
+    },
+    "custom/power": {
+        "format": "⏻ ",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        },
+        "justify": "center"
+    },
+    "custom/sysIcon": {
+        "format": "",
+        "justify": "center",
+        "tooltip-format":"Open HTop",
+        "on-click":"kitty -e htop"
+    },
+    "group/sys": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-left-to-right": true,
+            "children-class":"sys-child"
+        },
+        "modules": [
+            "custom/sysIcon",
+            "cpu",
+            "memory",
+            "disk",
+        ]
+    },
+    "custom/trayIcon":{
+        "format":"",
+        "tooltip":false,
+        "justify":"center"
+    },
+
+    "group/apps":{
+        "orientation":"inherit",
+        "drawer": {
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/trayIcon",
+            "tray"
+        ]
+    }
+}

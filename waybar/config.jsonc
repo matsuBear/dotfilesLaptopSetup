@@ -11,9 +11,9 @@
     ],
     "modules-right": [
         "group/audio",
+        "group/apps",
         "network#icon",
-        "battery",
-        "tray"
+        "battery"
     ],
     "hyprland/workspaces":{
         "format":"{id}",
@@ -85,7 +85,8 @@
         "tooltip-format":"{essid}",
         "tooltip-format-ethernet":"{ifname}",
         "tooltip-format-disconnected":"DCed",
-        "justify": "center"
+        "justify": "center",
+        "on-click": "kitty -e nmtui",
     },
     "pulseaudio": {
         "format": "{icon}",
@@ -132,8 +133,10 @@
         "justify": "center"
     },
     "custom/sysIcon": {
-        "format": "",
-        "justify": "center"
+        "format": "",
+        "justify": "center",
+        "tooltip-format":"Open HTop",
+        "on-click":"kitty -e htop"
     },
     "group/sys": {
         "orientation": "inherit",
@@ -145,7 +148,23 @@
             "custom/sysIcon",
             "cpu",
             "memory",
-            "temperature"
+            "disk",
+        ]
+    },
+    "custom/trayIcon":{
+        "format":"",
+        "tooltip":false,
+        "justify":"center"
+    },
+
+    "group/apps":{
+        "orientation":"inherit",
+        "drawer": {
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/trayIcon",
+            "tray"
         ]
     }
 }

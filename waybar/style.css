@@ -45,7 +45,7 @@ window#waybar.solo {
     margin-top: 1.2rem;
 }
 
-#custom-sysIcon{
+#custom-sysIcon, #custom-trayIcon{
     font-size: 2.5rem;
     font-family: 'ShureTechMono Nerd Font Mono';
     color:@high-tone;
