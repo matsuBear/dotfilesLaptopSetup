@@ -58,6 +58,16 @@ return {
 
 EOF
 
+cat <<EOF > "$HOME/.config/nvim/lua/custom/colors.lua"
+return {
+  prim      = "#${prim}",
+  secd      = "#${secd}",
+  acct      = "#${acct}",
+  high_tone = "#${tone1}",
+  low_tone  = "#${tone2}",
+}
+EOF
+
 
 hexToRGB(){
 	local COLOR=$1

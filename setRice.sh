@@ -6,7 +6,7 @@ setconf() {
     local name="$1"
     [ -d "$name" ] || { echo "Missing '$name' source dir — aborting."; exit 1; }
     rm -rf ~/.config/"$name"
-    mv "$name" ~/.config/
+    cp -r "$name" ~/.config/
     echo "Set $name!"
 }
 
@@ -18,7 +18,7 @@ if [[ "$answer" == "y" ]]; then
 	echo -e "Setting up the fonts to /usr/local/share/fonts/\nYou will be prompted to enter you password!"
 
 	if [ -d "/usr/local/share/fonts/" ]; then
-		sudo mv fonts/* /usr/local/share/fonts/
+		sudo cp fonts/* /usr/local/share/fonts/
 		echo -e "Fonts were succesfully set!"
 	else
 		echo -e "No /usr/local/share/fonts/ directory was found!\nSkipping font setup."
@@ -40,7 +40,7 @@ if [[ "$answer" == "y" ]]; then
 		mkdir ~/ShellScripts
 		echo "Created ShellScripts dir!"
 	fi
-	mv reload-colors ~/ShellScripts/
+	cp reload-colors ~/ShellScripts/
 	chmod 700 ~/ShellScripts/reload-colors
 	echo "All files were set! Do not forget to run reload-colors to generate truly fresh files! Also do remove this directory!"
 else
