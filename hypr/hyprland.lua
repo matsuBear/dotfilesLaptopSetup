@@ -323,6 +323,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 
 hl.bind(mainMod .."+ F12", hl.dsp.exec_cmd("hyprshot -m window"))
 hl.bind(mainMod .."+ SHIFT + F12", hl.dsp.exec_cmd("hyprshot -m region"))
+hl.bind(mainMod .. "+ L", hl.dsp.exec_cmd("~/ShellScripts/lock.sh"))
 
 
 --------------------------------
