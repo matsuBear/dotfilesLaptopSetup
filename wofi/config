@@ -1,8 +1,10 @@
 style = .config/wofi/style.css
 
-width=30%
-height=60%
-location=top_right
+width=50%
+height=50%
+location=center
+x=320
+y=200
 show=drun
 prompt=
 always_parse_args=true

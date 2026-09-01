@@ -7,16 +7,17 @@
 }
 
 #window {
+    background:transparent;
     font-size: 18px;
-    background: linear-gradient(180deg, alpha(@low-tone, 0.7) 0%, alpha(@secd, 0.7) 50%, alpha(@low-tone, 0.7) 100%);
-    border-style: solid;
-    border-width: 0 0.2rem 0 0 ;
-    border-image: linear-gradient(180deg, @acct 0%, @prim 10%, @high-tone 50%, @prim 90%, @acct 100%) 1;
 }
 
 #outer-box {
     border: 0px solid;
     border: 0px solid transparent;
+    margin:10px;
+    background: linear-gradient(180deg, alpha(@low-tone, 0.7) 0%, alpha(@secd, 0.7) 50%, alpha(@low-tone, 0.7) 100%);
+    border-radius:5px;
+    box-shadow: 0px 0px 4px 1px @secd;
 }
 
 #input {

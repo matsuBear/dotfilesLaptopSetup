@@ -1,6 +1,7 @@
 {
+    "layer":"top",
     "position": "right",
-    "width": 65,
+    "width": 85,
     "spacing": 4,
     "modules-left": [
         "clock",
@@ -28,7 +29,7 @@
         "justify": "center",
         "align": "center",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-       "format-alt": "{0:%y}\n\u2009\n{0:%m}\n\u2009\n{0:%d}"
+       "format-alt": "{0:%d}\n\u2009\n{0:%m}\n\u2009\n{0:%y}"
     },
     "cpu": {
         "format": "{usage}% \u2009",
