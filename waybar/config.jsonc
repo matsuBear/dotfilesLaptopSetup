@@ -3,6 +3,9 @@
     "position": "right",
     "width": 85,
     "spacing": 4,
+    "margin-right":15,
+    "margin-top":20,
+    "margin-bottom":20,
     "modules-left": [
         "clock",
         "group/sys"

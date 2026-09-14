@@ -15,7 +15,7 @@
     border: 0px solid;
     border: 0px solid transparent;
     margin:10px;
-    background: linear-gradient(180deg, alpha(@low-tone, 0.7) 0%, alpha(@secd, 0.7) 50%, alpha(@low-tone, 0.7) 100%);
+    background: alpha(@secd, 0.7);
     border-radius:5px;
     box-shadow: 0px 0px 4px 1px @secd;
 }
@@ -29,7 +29,7 @@
     font-weight: bold;
     background: transparent;
     border: 0px solid transparent;
-    color: @high-tone;
+    color: @prim;
     caret-color: @high-tone;
 }
 
@@ -51,7 +51,7 @@
 #entry:selected {
     border-radius: 0px;
     border: 0px solid transparent;
-    background: linear-gradient(@prim, @high-tone);
+    background: linear-gradient(90deg, alpha(@low-tone, 0.8) 20%, alpha(@secd, 0.8) 50%, alpha(@low-tone, 0.8) 100%);
     transition: 0.15s ease-in-out;
 }
 
@@ -60,7 +60,7 @@
     margin-left: 1em;
     border: none;
     text-decoration: none;
-    color: @high-tone;
+    color: @prim;
     transition: 0.15s ease-in-out;
     border: 0px solid transparent;
 }
@@ -69,7 +69,7 @@
     background-color: transparent;
     font-weight: normal;
     font-size: 110%;
-    color: @secd;
+    color: @high-tone;
     transition: 0.1s ease-in-out;
     border: 0px solid transparent;
 }

@@ -148,7 +148,7 @@ hl.config({
         blur = {
             enabled   = true,
             size      = 7,
-            passes    = 3,
+            passes    = 2,
             vibrancy  = 0.4696,
         },
 
@@ -385,6 +385,14 @@ hl.layer_rule({
     match={namespace="^wofi$"},
     blur=true,
     ignore_alpha=0.5,
+})
+hl.layer_rule({
+  name="quickshell",
+    match={namespace="^quickshell$"},
+    blur=true,
+    ignore_alpha=0.5,
+    order=1,
+    no_anim=true,
 })
 
 -- Hyprland-run windowrule
