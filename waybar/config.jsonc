@@ -1,9 +1,9 @@
 {
     "layer":"top",
     "position": "right",
-    "width": 85,
+    "width": 75,
     "spacing": 4,
-    "margin-right":15,
+    "margin-right":10,
     "margin-top":20,
     "margin-bottom":20,
     "modules-left": [
