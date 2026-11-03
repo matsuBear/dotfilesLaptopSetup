@@ -17,7 +17,6 @@
     margin:10px;
     background: alpha(@secd, 0.7);
     border-radius:5px;
-    box-shadow: 0px 0px 4px 1px @secd;
 }
 
 #input {

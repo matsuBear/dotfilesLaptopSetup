@@ -1,11 +1,8 @@
 {
-    "layer":"top",
-    "position": "right",
-    "width": 75,
+    "position": "left",
+    "width": 68,
+    "padding": 10,
     "spacing": 4,
-    "margin-right":10,
-    "margin-top":20,
-    "margin-bottom":20,
     "modules-left": [
         "clock",
         "group/sys"
@@ -32,7 +29,7 @@
         "justify": "center",
         "align": "center",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-       "format-alt": "{0:%d}\n\u2009\n{0:%m}\n\u2009\n{0:%y}"
+       "format-alt": "{0:%y}\n\u2009\n{0:%m}\n\u2009\n{0:%d}"
     },
     "cpu": {
         "format": "{usage}% \u2009",

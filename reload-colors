@@ -90,6 +90,16 @@ dark_bold=$'\001\033[1;38;2;'"${vdark}"$'m\002'
 
 EOF
 
+cat<<EOF > "$HOME/.config/qutebrowser/colors.py"
+
+prim="#${prim}"
+secd="#${secd}"
+acct="#${acct}"
+low_tone="#${tone2}"
+high_tone="#${tone1}"
+
+EOF
+
 cat<<'EOF' > "$HOME/.config/bash/prompt.sh" 
 
 source "$HOME/.config/bash/color.sh"

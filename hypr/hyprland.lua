@@ -90,7 +90,7 @@ local menu        = "wofi --show drun"
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
 hl.env("XCURSOR_SIZE", "24")
-hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "20")
 hl.env("NIXOS_OZONE_WL", "1")
 hl.env("GDK_BACKEND", "wayland,x11")
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
@@ -126,10 +126,15 @@ local color=require("color")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
     general = {
-        gaps_in  = 10,
+        gaps_in  = 8,
         gaps_out = 20,
 
         border_size = 0,
+
+        --    col={
+        --        active_border={colors ={color.secd, color.prim, color.prim, color.high_tone,color.high_tone,color.high_tone, color.prim,color.prim, color.secd}, angle=45},
+        --        inactive_border="00000000",
+        --    },
 
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -142,17 +147,20 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 5,
-        rounding_power = 2,
+        rounding       = 0,
+        rounding_power = 1,
 
         -- Change transparency of focused and unfocused windows
         active_opacity   = 1.0,
-        inactive_opacity = 0.77,
+        inactive_opacity = 1,
+        dim_inactive=true,
+        dim_strength=0.20,
+
 
         shadow = {
             enabled      = false,
-            range = 10,
-            render_power=3,
+            range = 5,
+            render_power=1,
             sharp=false,
             scale=2,
             color=color.secd,
@@ -161,16 +169,10 @@ hl.config({
 
         blur = {
             enabled   = true,
-            passes = 2,
-            size=3,
-            variant="aurora",
-            aurora={
-                speed=0,
-                intensity=0.9,
-                color1=color.secd,
-                color2=color.low_tone
-            },
-            glass   = { refraction = 10.0, size = 100.0, roughness=0.3 },
+            passes = 3,
+            size=2,
+            variant="kawase",
+            --glass   = { refraction = 8.0, size = 50.0, roughness=0 },
             xray=true,
             new_optimizations=true
         },
@@ -181,8 +183,6 @@ hl.config({
         enabled = true,
     },
 })
-
-hl.config({ debug = { overlay = true } })
 
 hl.config({
     scrolling = {
@@ -325,6 +325,8 @@ hl.bind(mainMod .. " + K",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J",  hl.dsp.focus({ direction = "down" }))
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.layout("consume_or_expel prev"))
 hl.bind(mainMod .. " + SHIFT + J", hl.dsp.layout("consume_or_expel next"))
+hl.bind(mainMod .. "+ SHIFT + H", hl.dsp.window.move({workspace = "e-1"}))
+hl.bind(mainMod .. "+ SHIFT + L", hl.dsp.window.move({workspace = "e+1"}))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -406,6 +408,11 @@ hl.layer_rule({
     ignore_alpha=0.5,
     order=1,
     no_anim=true,
+})
+hl.window_rule({
+  name = "qutebrowser",
+  match = { class = "^org.qutebrowser.qutebrowser$" },
+  opacity = "1.0 0.85",
 })
 hl.layer_rule({
   name="wofi",
