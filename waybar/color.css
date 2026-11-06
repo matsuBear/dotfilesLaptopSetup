@@ -1,9 +1,18 @@
 
 @define-color prim #b0c2cf;
 
-@define-color secd #233642;
+@define-color secd #324180;
 
-@define-color acct #8c7e6c;
+@define-color acct #a38b6c;
 @define-color high-tone #fcebd2;
-@define-color low-tone #0e1226;
+@define-color low-tone #0d1330;
+
+@define-color mid-light-cold #6f7f94;
+@define-color mid-dark-cold #1b2352;
+@define-color prim-warm #c99a3e;
+@define-color secd-warm #8b5a3c;
+@define-color green #7a9a6a;
+@define-color red #c2503f;
+@define-color blue #5f7fd0;
+@define-color pink #9a8fc0;
 

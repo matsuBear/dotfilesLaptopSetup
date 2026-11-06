@@ -9,11 +9,14 @@ fi
 
 source "$SOURCE"
 
+# Old name -> new name (output keys below are unchanged so existing configs keep working)
+#   prim  -> primCold      secd  -> secdCold     acct  -> midWarm
+#   tone1 -> lightWarm     tone2 -> darkCold
+
 cat <<EOF > "$HOME/.config/kitty/aesth.conf"
 
-background #${tone2}
-foreground #${tone1}
-active_border_color #${acct}
+background #${darkCold}
+foreground #${lightWarm}
 
 EOF
 
@@ -23,48 +26,84 @@ EOF
 
 cat <<EOF > "$HOME/.config/waybar/color.css"
 
-@define-color prim #${prim};
+@define-color prim #${primCold};
 
-@define-color secd #${secd};
+@define-color secd #${secdCold};
 
-@define-color acct #${acct};
-@define-color high-tone #${tone1};
-@define-color low-tone #${tone2};
+@define-color acct #${midWarm};
+@define-color high-tone #${lightWarm};
+@define-color low-tone #${darkCold};
+
+@define-color mid-light-cold #${midLightCold};
+@define-color mid-dark-cold #${midDarkCold};
+@define-color prim-warm #${primWarm};
+@define-color secd-warm #${secdWarm};
+@define-color green #${greenAlt};
+@define-color red #${redAlt};
+@define-color blue #${blueAlt};
+@define-color pink #${pinkAlt};
 
 EOF
 
 cat <<EOF > "$HOME/.config/wofi/color.css"
 
-@define-color prim #${prim};
+@define-color prim #${primCold};
 
-@define-color secd #${secd};
+@define-color secd #${secdCold};
 
-@define-color acct #${acct};
-@define-color high-tone #${tone1};
-@define-color low-tone #${tone2};
+@define-color acct #${midWarm};
+@define-color high-tone #${lightWarm};
+@define-color low-tone #${darkCold};
+
+@define-color mid-light-cold #${midLightCold};
+@define-color mid-dark-cold #${midDarkCold};
+@define-color prim-warm #${primWarm};
+@define-color secd-warm #${secdWarm};
+@define-color green #${greenAlt};
+@define-color red #${redAlt};
+@define-color blue #${blueAlt};
+@define-color pink #${pinkAlt};
 
 EOF
 
 cat <<EOF > "$HOME/.config/hypr/color.lua"
 
 return {
-	prim="rgba(${prim}ff)",
-	secd="rgba(${secd}ff)",
-	acct="rgba(${acct}ff)",
-	high_tone="rgba(${tone1}ff)",
-	low_tone="rgba(${tone2}ff)"
-	
+	prim="rgba(${primCold}ff)",
+	secd="rgba(${secdCold}ff)",
+	acct="rgba(${midWarm}ff)",
+	high_tone="rgba(${lightWarm}ff)",
+	low_tone="rgba(${darkCold}ff)",
+
+	mid_light_cold="rgba(${midLightCold}ff)",
+	mid_dark_cold="rgba(${midDarkCold}ff)",
+	prim_warm="rgba(${primWarm}ff)",
+	secd_warm="rgba(${secdWarm}ff)",
+	green="rgba(${greenAlt}ff)",
+	red="rgba(${redAlt}ff)",
+	blue="rgba(${blueAlt}ff)",
+	pink="rgba(${pinkAlt}ff)"
+
 }
 
 EOF
 
 cat <<EOF > "$HOME/.config/nvim/lua/custom/colors.lua"
 return {
-  prim      = "#${prim}",
-  secd      = "#${secd}",
-  acct      = "#${acct}",
-  high_tone = "#${tone1}",
-  low_tone  = "#${tone2}",
+  prim           = "#${primCold}",
+  secd           = "#${secdCold}",
+  acct           = "#${midWarm}",
+  high_tone      = "#${lightWarm}",
+  low_tone       = "#${darkCold}",
+
+  mid_light_cold = "#${midLightCold}",
+  mid_dark_cold  = "#${midDarkCold}",
+  prim_warm      = "#${primWarm}",
+  secd_warm      = "#${secdWarm}",
+  green          = "#${greenAlt}",
+  red            = "#${redAlt}",
+  blue           = "#${blueAlt}",
+  pink           = "#${pinkAlt}",
 }
 EOF
 
@@ -78,8 +117,8 @@ hexToRGB(){
 }
 
 
-vlight=$(hexToRGB ${tone1})
-vdark=$(hexToRGB ${prim})
+vlight=$(hexToRGB ${lightWarm})
+vdark=$(hexToRGB ${primCold})
 
 cat<<EOF > "$HOME/.config/bash/color.sh"
 
@@ -92,11 +131,20 @@ EOF
 
 cat<<EOF > "$HOME/.config/qutebrowser/colors.py"
 
-prim="#${prim}"
-secd="#${secd}"
-acct="#${acct}"
-low_tone="#${tone2}"
-high_tone="#${tone1}"
+prim="#${primCold}"
+secd="#${secdCold}"
+acct="#${midWarm}"
+low_tone="#${darkCold}"
+high_tone="#${lightWarm}"
+
+mid_light_cold="#${midLightCold}"
+mid_dark_cold="#${midDarkCold}"
+prim_warm="#${primWarm}"
+secd_warm="#${secdWarm}"
+green="#${greenAlt}"
+red="#${redAlt}"
+blue="#${blueAlt}"
+pink="#${pinkAlt}"
 
 EOF
 
@@ -105,7 +153,7 @@ cat<<'EOF' > "$HOME/.config/bash/prompt.sh"
 source "$HOME/.config/bash/color.sh"
 
 shopt -s promptvars
-PS1=$'\n '"${dark_bold}"' \u  '"${light}"'   [\W]'"${light_bold}${reset}"$'\n     > '
+PS1=$'\n '"${dark_bold}"' \u '"${light}"' [\W]'"${light_bold}${reset}"$'\n     > '
 EOF
 
 

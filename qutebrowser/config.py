@@ -23,9 +23,9 @@ primAlpha=addAlpha(0.85, prim)
 c.window.transparent = True
 
 # Statusbar (nvim StatusLine: prim on secd)
-c.colors.statusbar.normal.bg =secd 
+c.colors.statusbar.normal.bg =secdAlpha
 c.colors.statusbar.command.fg = prim
-c.colors.statusbar.command.bg = secd 
+c.colors.statusbar.command.bg = secd
 c.colors.statusbar.passthrough.bg = primAlpha
 c.colors.statusbar.passthrough.fg = hi
 c.colors.statusbar.url.fg = prim
@@ -33,7 +33,7 @@ c.colors.statusbar.url.success.https.fg = hi
 c.colors.statusbar.progress.bg = acct
 c.statusbar.padding = {'top': 3, 'bottom': 3, 'left': 6, 'right': 6}
 c.statusbar.show = 'in-mode'
-c.colors.statusbar.insert.bg = acctAlpha
+c.colors.statusbar.insert.bg = secdAlpha
 c.colors.statusbar.insert.fg = hi
 
 # Tabs (selected = StatusLine, inactive = StatusLineNC)
@@ -124,6 +124,17 @@ c.url.searchengines = {
 c.url.start_pages = ['about:blank']       # no start page to load
 c.url.default_page = 'about:blank'        # what new tabs show
 c.content.blocking.method = 'both'        # adblock + hosts; run :adblock-update once
+c.content.pdfjs = True
+c.downloads.remove_finished = 3000
+c.content.blocking.method = 'both'   # adblock lists + hosts file
+c.content.blocking.adblock.lists = [
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt",
+    "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt",
+]
 
 
 #Performance
@@ -132,3 +143,9 @@ c.qt.chromium.process_model = 'process-per-site'   # fewer renderer processes
 c.content.webgl =False
 c.content.canvas_reading = True                 # minor
 c.content.prefers_reduced_motion = False
+
+
+#Bind Changes
+
+config.bind('j', 'scroll-px 0 400')
+config.bind('k', 'scroll-px 0 -400')
